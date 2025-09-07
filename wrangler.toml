@@ -13,24 +13,13 @@ binding = "DB"
 database_name = "katelyatv-db"
 database_id = "09df9e44-4abd-488f-9679-002780434b23"
 
-[[d1_databases]]
-binding = "DB"
-database_name = "katelyatv-db"
-database_id = "09df9e44-4abd-488f-9679-002780434b23"  # 替换为步骤1中获得的ID
-
-[build]
-command = "pnpm install --frozen-lockfile && pnpm run pages:build"
-
-[[build.environment_variables]]
-NEXT_PUBLIC_STORAGE_TYPE = "d1"
-
-[vars]
+# 生产环境变量
+[env.production.vars]
+# 补充之前顶层定义的变量到生产环境
 USERNAME = "YJHxx2561"
 PASSWORD = "yjh20050601"
 NEXT_PUBLIC_ENABLE_REGISTER = "true"
-
-# 生产环境变量
-[env.production.vars]
+# 原有生产环境变量
 NEXT_PUBLIC_STORAGE_TYPE = "d1"
 NEXT_PUBLIC_SITE_NAME = "KatelyaTV"
 NEXT_PUBLIC_SITE_DESCRIPTION = "高性能影视播放平台"
@@ -58,6 +47,11 @@ database_id = "09df9e44-4abd-488f-9679-002780434b23"
 
 # 预览环境变量
 [env.preview.vars]
+# 补充需要的变量到预览环境
+USERNAME = "YJHxx2561"
+PASSWORD = "yjh20050601"
+NEXT_PUBLIC_ENABLE_REGISTER = "true"
+# 原有预览环境变量
 NEXT_PUBLIC_STORAGE_TYPE = "d1"
 NEXT_PUBLIC_SITE_NAME = "KatelyaTV"
 NEXT_PUBLIC_SITE_DESCRIPTION = "高性能影视播放平台"
