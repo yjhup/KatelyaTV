@@ -13,6 +13,22 @@ binding = "DB"
 database_name = "katelyatv-db"
 database_id = "09df9e44-4abd-488f-9679-002780434b23"
 
+[[d1_databases]]
+binding = "DB"
+database_name = "katelyatv-db"
+database_id = "09df9e44-4abd-488f-9679-002780434b23"  # 替换为步骤1中获得的ID
+
+[build]
+command = "pnpm install --frozen-lockfile && pnpm run pages:build"
+
+[[build.environment_variables]]
+NEXT_PUBLIC_STORAGE_TYPE = "d1"
+
+[vars]
+USERNAME = "YJHxx2561"
+PASSWORD = "yjh20050601"
+NEXT_PUBLIC_ENABLE_REGISTER = "true"
+
 # 生产环境变量
 [env.production.vars]
 NEXT_PUBLIC_STORAGE_TYPE = "d1"
